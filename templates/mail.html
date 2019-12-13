@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "layout.html" %}
+{% block content %}
+<h1>Your Email</h1>
+<table class="table">
+  <tr>
+    <th>From</th>
+    <th>Subject</th>
+    <th>Received</th>
+  </tr>
+
+  {% for message in messages %}
+    <tr>
+      <td>{{ message.from.emailAddress.name }}</td>
+      <td>{{ message.subject }}</td>
+      <td>{{ message.receivedDateTime }}</td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}
+</body>
+</html>
